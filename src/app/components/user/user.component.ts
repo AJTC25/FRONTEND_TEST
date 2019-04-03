@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { IUser } from 'src/app/shared/entities/user';
 
 @Component({
   selector: 'comp-user',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  public data: IUser
 
-  ngOnInit() {
+  constructor() {
+    this.data = {
+      name: "",
+      credits: [{
+        registerDate: new Date()
+      },{
+        registerDate: new Date()
+      }]
+    }
   }
 
+  ngOnInit() {
+
+  }
 }

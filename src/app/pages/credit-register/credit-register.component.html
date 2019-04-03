@@ -1,21 +1,15 @@
 <div class="form-group">
   <div class="row">
-    <div class="col-sm-0 col-md-4">
-    </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="offset-sm-0 offset-md-4 col-md-4">
       <div class="page-header">
         <h3>
           Registrar nuevo prestamo
         </h3>
       </div>
     </div>
-    <div class="col-sm-0 col-md-4">
-    </div>
   </div>
   <div class="row">
-    <div class="col-sm-0 col-md-4">
-    </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="offset-sm-0 offset-md-4 col-sm-12 col-md-4">
       <div class="form-group">
         <comp-user></comp-user>
         <comp-amount></comp-amount>
@@ -24,14 +18,12 @@
         <div class="row">
           <div class="col-12">
             <div class="btn-group float-right">
-              <button class="btn btn-success">Guardar</button>
+              <button class="btn btn-success" (click)="clickSave()">Guardar</button>
               <button class="btn btn-secondary">Cancelar</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-0 col-md-4">
     </div>
   </div>
 </div>

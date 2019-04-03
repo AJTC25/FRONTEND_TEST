@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { IUser } from 'src/app/shared/entities/user';
+import { UserComponent } from 'src/app/components/user/user.component';
+import { UserService } from 'src/app/shared/services/user-service';
 
 @Component({
   selector: 'page-register',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditRegisterComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(UserComponent)
+  componentUser: UserComponent;
+
+  constructor(private serviceUser: UserService) { }
 
   ngOnInit() {
+
   }
 
+  clickSave() {
+    this.serviceUser.Add(this.componentUser.data);
+  }
 }
