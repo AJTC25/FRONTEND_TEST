@@ -1,10 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ControlContainer, NgForm } from '@angular/forms';
+
 import { IUser } from 'src/app/shared/entities/user';
 
 @Component({
   selector: 'comp-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.less']
+  styleUrls: ['./user.component.less'],
+  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 })
 export class UserComponent implements OnInit {
 
@@ -12,12 +15,10 @@ export class UserComponent implements OnInit {
 
   constructor() {
     this.data = {
-      name: "",
-      credits: [{
-        registerDate: new Date()
-      },{
-        registerDate: new Date()
-      }]
+      identificacion: 0,
+      name: '',
+      registerDate: new Date(),
+      email: '',
     }
   }
 

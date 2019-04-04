@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./amount.component.less']
 })
 export class AmountComponent implements OnInit {
+  public amount: number;
   
   constructor() { }
 

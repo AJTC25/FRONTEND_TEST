@@ -1,25 +1,40 @@
-<div class="row">
-  <div class="col-12">
-    <label class="label">Cédula</label>
+<div ngModelGroup="comp-user">
+
+  <div class="row">
+    <div class="col-12">
+      <label class="label">Cédula</label>
+    </div>
+    <div class="col-12">
+      <input name="txtIdentification" class="form-control" [(ngModel)]="data.identification" type="number" required
+        #identification="ngModel" />
+      <div *ngIf="identification.invalid && (identification.dirty || identification.touched)"
+        class="alert alert-danger">
+        <label class="label">La cédula es requerida</label>
+      </div>
+    </div>
   </div>
-  <div class="col-12">
-    <input class="form-control" type="number" required />
+  <div class="row">
+    <div class="col-12">
+      <label class="label">Nombre</label>
+    </div>
+    <div class="col-12">
+      <input name="txtName" [(ngModel)]="data.name" class="form-control" type="text" required #name="ngModel" />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <label class="label">El nombre es requerido</label>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <label class="label">Nombre</label>
-  </div>
-  <div class="col-12">
-    <input [(ngModel)]="data.name" class="form-control" type="text" required />
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <label class="label">Correo</label>
-  </div>
-  <div class="col-12">
-    <input class="form-control" type="text"
-      pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required />
+  <div class="row">
+    <div class="col-12">
+      <label class="label">Correo</label>
+    </div>
+    <div class="col-12">
+      <input name="txtEmail" class="form-control" type="email" [(ngModel)]="data.email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #email="ngModel" />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+        <label *ngIf="email.errors.required" class="label">El correo es requerido</label>
+        <label *ngIf="email.errors.pattern && email.touched" class="label">El correo es invalido</label>
+      </div>
+    </div>
   </div>
 </div>

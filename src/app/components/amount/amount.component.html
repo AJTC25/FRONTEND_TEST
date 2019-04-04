@@ -3,6 +3,10 @@
     <label class="label">Valor del prestamo</label>
   </div>
   <div class="col-12">
-    <input class="form-control" type="number" min="10000" max="100000" required />
+    <input [(ngModel)]="amount" class="form-control" type="number" min="100000" max="1000000"  #amountValid="ngModel" required/>
+    <div *ngIf="(amountValid.invalid) && (amountValid.dirty || amountValid.touched)" class="alert alert-danger">
+      <label class="label">El valor es requerido</label>
+      <!-- <label class="label">El valor es debe ser entre 100.000 y 1.000.000</label> -->
+    </div>
   </div>
 </div>
