@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
     this.data = {
       identificacion: 0,
       name: '',
-      registerDate: new Date(),
+      createdDate: '',
       email: '',
     }
   }

@@ -1,8 +1,9 @@
-import { Credit } from './credit';
+import { ICredit } from './credit';
 
 export interface IUser {
     name: string,
-    registerDate: Date,
+    createdDate: string,
     email: string,
-    identificacion: number
+    identificacion: number,
+    credits?: ICredit[]
 }

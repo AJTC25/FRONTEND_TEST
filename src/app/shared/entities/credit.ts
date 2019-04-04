@@ -1,6 +1,5 @@
-export interface Credit {
-   
-    registerDate: Date,
+export interface ICredit {
+    createdDate: string,
     amount: number,
     paymentDate?: Date
     state: boolean,

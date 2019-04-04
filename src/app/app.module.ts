@@ -21,6 +21,8 @@ import { CreditRegisterComponent } from './pages/credit-register/credit-register
 import { HomeComponent } from './pages/home/home.component';
 
 import { environment } from 'src/environments/environment';
+import { CreditListComponent } from './pages/credit-list/credit-list.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 library.add(fas);
 @NgModule({
@@ -29,7 +31,9 @@ library.add(fas);
     AmountComponent,
     UserComponent,
     CreditRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    CreditListComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
