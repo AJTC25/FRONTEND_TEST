@@ -6,7 +6,7 @@
     </div>
     <div class="col-12">
       <input name="txtIdentification" class="form-control" [(ngModel)]="data.identification" type="number" required
-        #identification="ngModel" />
+        #identification="ngModel" (blur)="blurName()" />
       <div *ngIf="identification.invalid && (identification.dirty || identification.touched)"
         class="alert alert-danger">
         <label class="label">La cédula es requerida</label>

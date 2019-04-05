@@ -8,17 +8,30 @@ import { UserService } from 'src/app/shared/services/user-service';
   styleUrls: ['./credit-list.component.less']
 })
 export class CreditListComponent implements OnInit {
-  public listItems: IUser[] = [];
+  private listItems: IUser[] = [];
+  private search: string = '';
 
   constructor(private service: UserService) {
 
   }
 
   ngOnInit() {
-    let datos = this.service.GetList()
-      .subscribe(result => {
-        this.listItems = <IUser[]>result;
-      });
+    this.load();
   }
 
+  load() {
+    this.service.get()
+      .subscribe(result => {
+        let arrayUsers = [];
+
+        for (var i in result) {
+          let item = result[i];
+          let user = <IUser>item.payload.val();
+          user.$key = item.key;
+          arrayUsers.push(user);
+        }
+
+        this.listItems = <IUser[]>arrayUsers;
+      });
+  }
 }

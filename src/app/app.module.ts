@@ -14,17 +14,24 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+
 import { AppComponent } from './app.component';
 import { AmountComponent } from './components/amount/amount.component';
 import { UserComponent } from './components/user/user.component';
 import { CreditRegisterComponent } from './pages/credit-register/credit-register.component';
 import { HomeComponent } from './pages/home/home.component';
-
-import { environment } from 'src/environments/environment';
 import { CreditListComponent } from './pages/credit-list/credit-list.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 
+import { environment } from 'src/environments/environment';
+import { CreditHistoryComponent } from './components/credit-history/credit-history.component';
+import { FilterFor } from './shared/pipes/filterFor';
+import { BaseAmountComponent } from './components/base-amount/base-amount.component';
+
 library.add(fas);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +40,10 @@ library.add(fas);
     CreditRegisterComponent,
     HomeComponent,
     CreditListComponent,
-    ItemListComponent
+    ItemListComponent,
+    CreditHistoryComponent,
+    FilterFor,
+    BaseAmountComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,8 @@ library.add(fas);
     AngularFirestoreModule, 
     AngularFireAuthModule, 
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    LoadingBarHttpClientModule
   ],
   providers: [AngularFireAuth, AngularFireDatabase],
   bootstrap: [AppComponent]

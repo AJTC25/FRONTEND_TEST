@@ -1,0 +1,18 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Fecha registro</th>
+      <th>Valor del préstamo</th>
+      <th>Pagado</th>
+      <th>Rechazado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let credit of list">
+      <td>{{credit.createdDate | date}}</td>
+      <td>${{credit.amount | number}}</td>
+      <td>{{credit.payment ? 'Pagado' : 'No pagado' }}</td>
+      <td>{{credit.state ? 'Aprobado' : 'Rechazado' }}</td>
+    </tr>
+  </tbody>
+</table>

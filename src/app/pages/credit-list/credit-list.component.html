@@ -13,13 +13,15 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" [(ngModel)]="search" placeholder="Buscar" />
           </div>
         </div>
       </div>
       <div class="form-group">
-        <item-list [data]="item" *ngFor="let item of listItems;"></item-list>
+        <item-list [data]="item" *ngFor="let item of listItems | filter:{name: search}"></item-list>
       </div>
     </div>
   </div>
 </div>
+<base-amount>
+</base-amount>

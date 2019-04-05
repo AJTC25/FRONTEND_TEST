@@ -1,9 +1,10 @@
 import { ICredit } from './credit';
 
 export interface IUser {
+    $key?:string,
     name: string,
-    createdDate: string,
+    createdDate: number,
     email: string,
-    identificacion: number,
+    identification?: number,
     credits?: ICredit[]
 }

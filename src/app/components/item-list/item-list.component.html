@@ -1,19 +1,47 @@
-<div class="row" style="border: solid #607D8B 2px;margin-bottom:10px;">
-  <div class="col-sm-1 btn-group" style="padding-left: 0px">
-    <button class="btn btn-primary" title="Realizar pago">
+<div class="row box-item">
+  <div class="col-sm-1 btn-group buttons-actions">
+    <button *ngIf="!lastCredit.payment && lastCredit.state" class="btn btn-primary" title="Realizar pago"
+      (click)="clickPayment()">
       <fa-icon class="d-inline-block align-top" [icon]="['fas','dollar-sign']"></fa-icon>
     </button>
-    <button class="btn btn-secondary" title="Historial de prestamos">
+    <button class="btn btn-secondary" title="Historial de prestamos" (click)="showHistory=!showHistory">
       <fa-icon class="d-inline-block align-top" [icon]="['fas','list-alt']"></fa-icon>
     </button>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4 text">
     <label class="label">{{data.name}}</label>
   </div>
-  <div class="col-sm-5">
-    <label class="label">$7878</label>
+  <div class="col-sm-5 text">
+    <label class="label">${{(lastCredit? lastCredit.amount: 0) | number}}</label>
   </div>
-  <div class="col-sm-1" style="padding-right: 0px">
-      <fa-icon class="d-inline-block align-top" [icon]="['fas','check-circle']"></fa-icon>
+  <div [ngClass]="'col-sm-2 button-state '+(lastCredit?.payment ? 'success' : (lastCredit?.state) ? '' : 'error')">
+    <fa-icon *ngIf="lastCredit?.payment" class="d-inline-block align-top" [icon]="['fas','check-circle']"></fa-icon>
+    <fa-icon *ngIf="!lastCredit?.payment && lastCredit?.state" class="d-inline-block align-top"
+      [icon]="['fas','check-double']"></fa-icon>
+    <fa-icon *ngIf="!lastCredit?.state" class="d-inline-block align-top" [icon]="['fas','exclamation-triangle']">
+    </fa-icon>
+    <label class="label">{{ lastCredit?.payment ? 'Pagado' : (lastCredit?.state ? 'Aprobado' : 'Rechazado') }}</label>
   </div>
 </div>
+<div class="row" *ngIf="showHistory">
+  <credit-history [list]="listCredits"></credit-history>
+</div>
+<!-- <div class="modal fade" [attr.id]="'modal' + data.identification" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Historial de prestamos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,5 +1,6 @@
 export interface ICredit {
-    createdDate: string,
+    $key?: string,
+    createdDate: number,
     amount: number,
     paymentDate?: Date
     state: boolean,
