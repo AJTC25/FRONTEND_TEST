@@ -14,8 +14,8 @@ export class ItemListComponent implements OnInit {
   @Input()
   data: IUser;
 
-  private showHistory: boolean;
-  private listCredits: ICredit[] = [];
+  public showHistory: boolean;
+  public listCredits: ICredit[] = [];
 
   public lastCredit: ICredit;
 

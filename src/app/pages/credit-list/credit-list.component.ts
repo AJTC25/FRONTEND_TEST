@@ -8,8 +8,8 @@ import { UserService } from 'src/app/shared/services/user-service';
   styleUrls: ['./credit-list.component.less']
 })
 export class CreditListComponent implements OnInit {
-  private listItems: IUser[] = [];
-  private search: string = '';
+  public listItems: IUser[] = [];
+  public search: string = '';
 
   constructor(private service: UserService) {
 
