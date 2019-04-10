@@ -32,4 +32,9 @@ export class CreditService {
                     payment: paymentValue
                 });
     }
+
+    getByUser(keyUser: string): Observable<any> {
+        return this.db.list(`user-list/${keyUser}/credits`)
+        .snapshotChanges();
+    }
 }

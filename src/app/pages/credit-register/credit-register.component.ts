@@ -32,6 +32,7 @@ export class CreditRegisterComponent implements OnInit {
   clickSave() {
     let amount = this.componentAmount.amount;
     if (amount >= 100000 && amount <= 1000000) {
+      this.componentUser.destroySubscription();
       this.serviceUser.push(this.componentUser.data, amount)
         .then(result => {
           let message = result ? 'Su préstamo fue aprobado' : '¡Lo sentimos pero su préstamo no pudo ser aprobado!';
