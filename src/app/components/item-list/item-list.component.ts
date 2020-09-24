@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IUser } from 'src/app/shared/entities/user';
 import { ICredit } from 'src/app/shared/entities/credit';
 import { CreditService } from 'src/app/shared/services/credit-service';
-import { load } from '@angular/core/src/render3';
 
 @Component({
   selector: 'item-list',
@@ -29,19 +28,19 @@ export class ItemListComponent implements OnInit {
 
   load() {
     if (this.data && this.data.credits) {
-      let arrayCredits = [];
+      // let arrayCredits = [];
 
-      for (var i in this.data.credits) {
-        let credit = this.data.credits[i];
-        credit.$key = i;
-        arrayCredits.push(credit);
-      }
+      // for (var i in this.data.credits) {
+      //   let credit = this.data.credits[i];
+      //   credit.$key = i;
+      //   arrayCredits.push(credit);
+      // }
 
-      this.lastCredit = arrayCredits.sort(function (a, b) {
-        return a.createdDate - b.createdDate;
-      })[arrayCredits.length - 1];
+      // this.lastCredit = arrayCredits.sort(function (a, b) {
+      //   return a.createdDate - b.createdDate;
+      // })[arrayCredits.length - 1];
 
-      this.listCredits = arrayCredits;
+      // this.listCredits = arrayCredits;
     }
   }
 

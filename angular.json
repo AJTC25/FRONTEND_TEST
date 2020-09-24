@@ -30,8 +30,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.less"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -137,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "FRONTEND-TEST"
+  "defaultProject": "FRONTEND-TEST",
+  "cli": {
+    "analytics": "2b0bfeac-6a05-419c-b6af-6bafb523d9f8"
+  }
 }
