@@ -24,6 +24,9 @@ import { environment } from 'src/environments/environment';
 import { CreditHistoryComponent } from './components/credit-history/credit-history.component';
 import { FilterFor } from './shared/pipes/filterFor';
 import { BaseAmountComponent } from './components/base-amount/base-amount.component';
+import { InicioShellComponent } from './containers/inicio-shell/inicio-shell.component';
+import { ContenedorShellComponent } from './containers/contenedor-shell/contenedor-shell.component';
+import { TotalesComponent } from './components/totales/totales.component';
 
 library.add(fas);
 
@@ -38,7 +41,10 @@ library.add(fas);
     ItemListComponent,
     CreditHistoryComponent,
     FilterFor,
-    BaseAmountComponent
+    BaseAmountComponent,
+    InicioShellComponent,
+    ContenedorShellComponent,
+    TotalesComponent
   ],
   imports: [
     BrowserModule,

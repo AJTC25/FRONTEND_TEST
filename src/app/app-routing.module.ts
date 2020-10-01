@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreditRegisterComponent } from './pages/credit-register/credit-register.component';
-import { HomeComponent } from './pages/home/home.component';
-import { CreditListComponent } from './pages/credit-list/credit-list.component';
+import { ContenedorShellComponent } from './containers/contenedor-shell/contenedor-shell.component';
+import { InicioShellComponent } from './containers/inicio-shell/inicio-shell.component';
 
 const routes: Routes =
   [
-    { path: '', component: HomeComponent },
-    { path: 'credit/register', component: CreditRegisterComponent },
-    { path: 'credit/list', component: CreditListComponent }
+    {
+      path: '',
+      component: ContenedorShellComponent,
+      children: [{
+        path: '',
+        component: InicioShellComponent
+      }]
+    }
   ];
 
 @NgModule({
